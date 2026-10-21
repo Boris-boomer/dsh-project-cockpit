@@ -5,6 +5,8 @@
   "private": true,
   "type": "module",
   "main": "src/index.mjs",
+  "author": "Boris-boomer",
+  "license": "MIT",
   "scripts": {
     "build": "tsdown",
     "test": "vitest run",
@@ -25,7 +27,6 @@
     "cordis.patch.yml",
     "doctor.mjs"
   ],
-  "license": "MIT",
   "dsh": {
     "client": { "platform": "web", "inject": ["dsh-project-cockpit"] },
     "bundle": { "patch": "./cordis.patch.yml" }
