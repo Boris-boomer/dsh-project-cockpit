@@ -1,0 +1,6 @@
+{
+  "1": { "name": "初级开发者", "desc": "实习生/应届/1-2年经验，主要使用AI查文档、写简单代码", "daily_min": 100, "daily_max": 1000, "daily_default": 500 },
+  "2": { "name": "中级开发者", "desc": "3-5年经验/主力干饭人，日常代码生成、测试、审查", "daily_min": 1000, "daily_max": 10000, "daily_default": 5000 },
+  "3": { "name": "高级开发者", "desc": "架构师/技术专家，复杂架构设计、多轮对话", "daily_min": 10000, "daily_max": 50000, "daily_default": 20000 },
+  "4": { "name": "重度AI用户", "desc": "AI Native/Agent开发者，自动化工作流、批量任务", "daily_min": 50000, "daily_max": 500000, "daily_default": 100000 }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "dsh-project-cockpit",
+  "description": "DSH 项目驾驶舱总控插件：整合块6 四大引擎（GapForm 选题 / 成本分析 / ShipSignal 信号评分 / CodeConstellation 图谱）为统一 webServer 路由 + 浮动面板。",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.mjs",
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:pipeline": "vitest run tests/pipeline.test.mjs",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "doctor": "node doctor.mjs"
+  },
+  "exports": {
+    ".": { "default": "./src/index.mjs" },
+    "./client": { "default": "./lib/client.js" },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/client.js",
+    "src",
+    "cordis.patch.yml",
+    "doctor.mjs"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "client": { "platform": "web", "inject": ["dsh-project-cockpit"] },
+    "bundle": { "patch": "./cordis.patch.yml" }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "jsdom": "^25.0.0",
+    "tsdown": "^0.23.0",
+    "typescript": "^7.0.2",
+    "vitest": "^2.1.0"
+  }
+}

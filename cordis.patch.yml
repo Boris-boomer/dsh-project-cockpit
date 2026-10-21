@@ -1,0 +1,5 @@
+# dsh-project-cockpit 挂载声明（子插件自声明）。
+# id=图标网格 id，name=本插件包名（须等于 package.json 的 name）。
+- insert:
+    - id: dsh-project-cockpit
+      name: 'dsh-project-cockpit'
