@@ -79,4 +79,19 @@ describe('client apply 生命周期', () => {
     for (const d of disposersA) d()
     for (const d of disposersB) d()
   })
+
+  it('apply 后存在独立入口悬浮按钮（不依赖 icon-grid），dispose 后移除', async () => {
+    const mod = await import('../../src/client/index')
+    const disposers: Array<() => void> = []
+    const ctx = makeFakeCtx(disposers)
+
+    mod.apply(ctx as any)
+
+    const btn = document.querySelector('button[aria-label="打开项目驾驶舱"]')
+    expect(btn).toBeTruthy()
+
+    for (const d of disposers) d()
+
+    expect(document.querySelector('button[aria-label="打开项目驾驶舱"]')).toBeNull()
+  })
 })

@@ -6,6 +6,7 @@
  *   2. package.json 的 exports["./client"] 指向的文件存在（需先 build）
  *   3. package.json 的 main 指向的文件存在
  *   4. host 入口的 name 等于 package.json 的 name 且导出 apply
+ *   5. 随包数据文件存在（data/models.json、data/careers.json），且 files 覆盖 data
  *
  * 跨平台：Windows 上 import() 需要 file:// URL，用 pathToFileURL 转换。
  */
@@ -64,6 +65,19 @@ if (pkg.main) {
     }
   }
 }
+
+// 5. 随包数据文件（发布时 files 必须包含 data，否则 /meta /cost 会挂）
+for (const f of ['data/models.json', 'data/careers.json']) {
+  check(
+    existsSync(resolve(ROOT, f)),
+    `随包数据文件缺失: ${f}（发布前确认 package.json 的 files 包含 "data"）`,
+  )
+}
+const files = Array.isArray(pkg.files) ? pkg.files : []
+check(
+  files.some((f) => f === 'data' || f.startsWith('data/')),
+  'package.json 的 files 未包含 "data"，npm 发布后会缺数据文件',
+)
 
 if (problems.length) {
   console.error('✗ doctor 发现问题:')

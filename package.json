@@ -1,6 +1,6 @@
 {
   "name": "dsh-project-cockpit",
-  "description": "DSH 项目驾驶舱总控插件：整合块6 四大引擎（GapForm 选题 / 成本分析 / ShipSignal 信号评分 / CodeConstellation 图谱）为统一 webServer 路由 + 浮动面板。",
+  "description": "DSH 项目驾驶舱总控插件：右下角浮动面板（🧭编排 / 🎯选题 / 💰成本 / 📡信号 / 🌌图谱 五页签），整合块6 四大引擎（GapForm 选题 / 成本分析 / ShipSignal 信号评分 / CodeConstellation 图谱）为统一 webServer 路由。",
   "version": "0.2.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsdown",
+    "prepare": "tsdown",
     "test": "vitest run",
     "test:pipeline": "vitest run tests/pipeline.test.mjs",
     "test:watch": "vitest",
@@ -23,6 +24,8 @@
   },
   "files": [
     "lib/client.js",
+    "lib/client.js.map",
+    "data",
     "src",
     "cordis.patch.yml",
     "doctor.mjs"
